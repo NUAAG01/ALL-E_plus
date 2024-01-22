@@ -245,7 +245,7 @@ class PixelWiseA3C(agent.AttributeSavingMixin, agent.AsyncAgent):
         pout_r,pout_g,pout_b,vout = self.model.pi_and_v(statevar)
         action_r = pout_r.sample().data
         action_g = pout_g.sample().data
-        action_b = pout_r.sample().data
+        action_b = pout_b.sample().data
         action = np.concatenate((action_r[:,np.newaxis,:,:],action_g[:,np.newaxis,:,:],action_b[:,np.newaxis,:,:]), axis=1)                       # Do not backprop through sampled actions
 ###############################
         #self.past_action_log_prob[self.t] = pout.log_prob(action)
